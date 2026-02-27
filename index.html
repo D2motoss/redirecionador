@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionamento WhatsApp</title>
+</head>
+<body>
+
+  <h2>Clique no botão para falar conosco no WhatsApp</h2>
+
+  <button onclick="redirecionar()">Falar no WhatsApp</button>
+
+  <script>
+    // Dois links de WhatsApp
+    const links = [
+      "https://wa.me/5547996264683",
+      "https://wa.me/5547996834199"
+    ];
+
+    function redirecionar() {
+      // Pega o valor salvo (ou 0 se não existir)
+      let contador = localStorage.getItem("contador");
+
+      if (!contador) {
+        contador = 0;
+      }
+
+      // Escolhe o link com base no contador
+      const link = links[contador % 2];
+
+      // Atualiza o contador
+      localStorage.setItem("contador", Number(contador) + 1);
+
+      // Redireciona
+      window.location.href = link;
+    }
+  </script>
+
+</body>
+</html>

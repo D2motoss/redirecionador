@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard WhatsApp</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      padding: 40px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+    }
+    h1 { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+<h1>📊 Dashboard de Cliques</h1>
+
+<div class="card">
+  <h3>Total de Cliques</h3>
+  <p id="total">0</p>
+</div>
+
+<div class="card">
+  <h3>Lucas</h3>
+  <p id="lucas">0</p>
+</div>
+
+<div class="card">
+  <h3>Sócio</h3>
+  <p id="socio">0</p>
+</div>
+
+<script>
+  async function carregarDados() {
+    const res = await fetch("/api/stats");
+    const data = await res.json();
+
+    document.getElementById("total").innerText = data.total;
+    document.getElementById("lucas").innerText = data.lucas;
+    document.getElementById("socio").innerText = data.socio;
+  }
+
+  carregarDados();
+  setInterval(carregarDados, 3000);
+</script>
+
+</body>
+</html>
