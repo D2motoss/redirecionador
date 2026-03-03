@@ -2,39 +2,53 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecionamento WhatsApp</title>
+  <title>D2 Motos Multimarcas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h2>Clique no botão para falar conosco no WhatsApp</h2>
+  <div class="container">
 
-  <button onclick="redirecionar()">Falar no WhatsApp</button>
+    <!-- TOPO -->
+    <div class="header">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbI3gsDW7BcFSG8H-fZGPNIslYQ5Fsy-fw9g&s" class="logo" alt="D2 Motos">
+      <h1>@D2MotosMultimarcas</h1>
+      <p class="subtitle">Realizando sonhos!</p>
+    </div>
 
-  <script>
-    // Dois links de WhatsApp
-    const links = [
-      "https://wa.me/5547996264683",
-      "https://wa.me/5547996834199"
-    ];
+    <!-- BANNER -->
+    <div class="banner">
+      <img src="banner.jpeg" alt="Estoque D2 Motos">
+    </div>
 
-    function redirecionar() {
-      // Pega o valor salvo (ou 0 se não existir)
-      let contador = localStorage.getItem("contador");
+    <!-- BOTÕES -->
+    <div class="buttons">
 
-      if (!contador) {
-        contador = 0;
-      }
+      <a href="https://www.d2motos.com.br" target="_blank" class="btn site">
+        🌐 Acessar o Site
+      </a>
 
-      // Escolhe o link com base no contador
-      const link = links[contador % 2];
+      <button class="btn whatsapp" id="btnWhatsapp">
+        💬 Falar no WhatsApp
+      </button>
 
-      // Atualiza o contador
-      localStorage.setItem("contador", Number(contador) + 1);
+    </div>
 
-      // Redireciona
-      window.location.href = link;
-    }
-  </script>
+    <!-- REDES SOCIAIS -->
+    <div class="social">
+      <a href="https://instagram.com/d2motosmultimarcas" target="_blank">Instagram</a>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+    </div>
 
+    <!-- RODAPÉ -->
+    <div class="footer">
+      © D2 Motos Multimarcas
+    </div>
+
+  </div>
+
+  <!-- SCRIPT SEMPRE NO FINAL -->
+  <script src="./server.js"></script>
 </body>
 </html>
